@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 
 // class item
-import { Item } from "../../model/item";
+import { Item } from "../../models/item";
 
 @Component({
   selector: 'app-home',
@@ -11,9 +11,15 @@ import { Item } from "../../model/item";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private db: AngularFirestore) { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  // submit new data to cloud firestore
+  onSubmit(){
+
   }
 
 }
