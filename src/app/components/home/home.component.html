@@ -6,22 +6,18 @@
                 <hr>
             </div>
 
-
             <!-- original form -->
             <div style="width: 400px; border: #0d6777; ">
+                <form (ngSubmit)="addItem()">
+                    <div class="form-group">
+                        <!-- name -->
+                        <label>Item Name: </label>
+                        <input type="text" class="form-control" placeholder="Item" [(ngModel)]="item.name">
 
-                <form [formGroup]="shoppingListForm" (ngSubmit)="addItem()">
-                    <!-- name -->
-                    <label>
-                        Item Name :
-                        <input type="text" formControlName="item" required>
-                    </label>
-
-                    <!-- $ price -->
-                    <label>
-                        Price In Ksh:
-                        <input type="number" formControlName="price" required>
-                    </label>
+                        <!-- $ price -->
+                        <label for="item">Price: </label>
+                        <input type="number" class="form-control" placeholder="Price" [(ngModel)]="item.price">
+                    </div>
                     <hr>
                     <!-- submit button -->
                     <div class="btn-group">

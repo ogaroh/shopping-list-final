@@ -1,7 +1,4 @@
-export class Item {
-    constructor(
-        public id: string,
-        public item: string,
-        public price: number
-    ) { }
+export interface Item {
+    name: string;
+    price: number;
 }
