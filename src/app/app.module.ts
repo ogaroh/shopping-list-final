@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 
 // Firebase imports
-import { AngularFirestoreModule, FirestoreSettingsToken } from "@angular/fire/firestore";
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from "@angular/fire/storage";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,8 +33,12 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
+    // initialize Firebase
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
