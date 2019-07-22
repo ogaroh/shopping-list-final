@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AngularFirestoreDocument, AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
+import { Observable, from } from 'rxjs';
+
 import { Item } from "../../models/item";
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,22 @@ import { Item } from "../../models/item";
 })
 export class HomeComponent implements OnInit {
 
-  items: Observable<Item>;
+  shoppping_items = new Item('','', 0);
+
+  shoppingListForm = new FormGroup({
+    item: new FormControl(''),
+    price: new FormControl(),
+  });
 
   constructor() {
+    
   }
 
   ngOnInit() {
 
   }
   // add item to database
-  addItem() { }
+  addItem() {
+    console.log(this.shoppingListForm.value);
+  }
 }
