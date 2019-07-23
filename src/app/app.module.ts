@@ -36,7 +36,7 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
 
     // Firebase
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AngularFireStorageModule
   ],

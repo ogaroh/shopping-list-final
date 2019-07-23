@@ -17,7 +17,8 @@
                         <input placeholder="Price" formControlName="item_price" type="number" class="form-control">
                     </label>
                     <div>
-                        <button type="button" class="btn btn-dark"><i class="fas fa-plus-circle"></i> Add </button>
+                        <button type="button" class="btn btn-dark"
+                        (click)="onSubmit()"><i class="fas fa-plus-circle"></i> Add </button>
                         <hr>
                     </div>
                 </form>
@@ -36,7 +37,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <pre
-                            *ngFor="let item of items | async; let i = index;">{{ i + 1 }}. {{item.item}}  --->  {{item.price}} Ksh.</pre>
+                            *ngFor="let item of item$ | async"> {{item.item_name}}  ---> {{item.item_price}} Ksh.</pre>
                     </li>
                 </ul>
                 <br>
