@@ -1,28 +1,20 @@
-# ShoppingListFinal
+# Shopping List Web Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
+A simple application to help the user keep track of the items they want to shop for.
 
-## Development server
+## Front End
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Angular, Bootstrap
 
-## Code scaffolding
+## Back End
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Firebase `Cloud Firestore Database, Authentication` and `Firebase Hosting`
 
-## Build
+## Firebase Hosting URL
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## GitHub Repository
+https://github.com/ogaroh/shopping-list-final
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# shopping-list-final
