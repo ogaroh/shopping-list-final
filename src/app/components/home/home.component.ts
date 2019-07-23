@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemsService } from "../../shared/items.service";
 import { Observable } from 'rxjs';
-// import 'rxjs/add/operator/map';
 import { AngularFirestoreDocument, AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
-import { Item } from "../../models/item";
-import { FormGroup, FormControl } from '@angular/forms';
+// import { Item } from "../../models/item";
 
 @Component({
   selector: 'app-home',
@@ -12,18 +11,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  itemsCollection: AngularFirestoreCollection<Item>;
-  items: Observable<Item[]>;
-
-  constructor(private afs: AngularFirestore) {
+  constructor(private itemsService: ItemsService) {
   }
 
   ngOnInit() {
-    this.itemsCollection = this.afs.collection('items');
-    this.items = this.itemsCollection.valueChanges(); // to be changed later
-  }
-  // add item to database
-  addItem() {
-    // console.log(this.shoppingListForm.value);
   }
 }

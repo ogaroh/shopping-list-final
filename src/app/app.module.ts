@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { ItemsService } from "./shared/items.service";
 import { environment } from '../environments/environment';
 
 // Firebase imports
@@ -32,7 +32,6 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
 
     // Firebase
@@ -41,7 +40,7 @@ import { SignUpComponent } from './components/account/sign-up/sign-up.component'
     AngularFireAuthModule,
     AngularFireStorageModule
   ],
-  providers: [],
+  providers: [ItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
