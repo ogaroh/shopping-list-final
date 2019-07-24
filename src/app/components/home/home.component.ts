@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from "../../shared/items.service";
+import { Item } from "../../models/item";
 // import { Observable } from 'rxjs';
 
 @Component({
@@ -10,18 +11,23 @@ import { ItemsService } from "../../shared/items.service";
 export class HomeComponent implements OnInit {
 
   itemsData = [];
+  items: Item[];
 
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
     this.getItemsData();
+    this.itemsService.getItems().subscribe(items => {
+      // console.log(items);
+      this.items = items;
+    }
+    );
   }
 
   // fetch items from database
   getItemsData() {
     this.itemsService
-      .getItemsData()
-      .subscribe(res => (this.itemsData = res));
+      .getItemsData();
   }
 
   // add item to items data

@@ -7,18 +7,18 @@
             </div>
 
             <!-- original form -->
-            <div style="width: 400px; border: #0d6777; ">
+            <div style="width: 450px; border: #0d6777; ">
                 <form [formGroup]="this.itemsService.form">
                     <label> Item Name:
                         <input placeholder="Name" formControlName="item_name" type="text" class="form-control">
                     </label>
                     <label>
-                        Price (Ksh): 
+                        Price (Ksh):
                         <input placeholder="Price" formControlName="item_price" type="number" class="form-control">
                     </label>
                     <div>
-                        <button type="button" class="btn btn-dark"
-                        (click)="onSubmit()"><i class="fas fa-plus-circle"></i> Add </button>
+                        <button type="button" class="btn btn-dark" (click)="onSubmit()"><i
+                                class="fas fa-plus-circle"></i> Add </button>
                         <hr>
                     </div>
                 </form>
@@ -28,18 +28,24 @@
         <div class="col" style="color: #0d6777; align-content: center;">
             <h3>SHOPPING LIST </h3>
             <hr>
-            <div class="card text-justify" style="width: 24rem;">
+            <div class="card text-justify" style="width: 26rem;">
                 <div class="card-header">
                     <img src="../../../assets/img/supermarket.svg" width="30" height="30"
                         class="d-inline-block align-top" alt="">
                     ITEMS
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <pre
-                            *ngFor="let item of item$ | async"> {{item.item_name}}  ---> {{item.item_price}} Ksh.</pre>
-                    </li>
-                </ul>
+                <div *ngIf="items?.length > 0; else noItems">
+                    <ul *ngFor="let item of items" class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <pre> {{item.item_name}}  -----> {{item.item_price}} Ksh.</pre>
+                        </li>
+                    </ul>
+                    <br>
+                    <pre>   Total Cost:  Ksh.</pre>
+                </div>
+                <ng-template #noItems>
+                    <pre>No items in shopping list</pre>
+                </ng-template>
                 <br>
             </div>
         </div>

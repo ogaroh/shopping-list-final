@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { AngularFirestoreDocument, AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
 import { Observable } from 'rxjs';
-// import { Item } from "../models/item";
+import { Item } from "../models/item";
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +10,17 @@ import { Observable } from 'rxjs';
 
 
 export class ItemsService {
-  itemsCollectionRef: any;
-  item$: Observable<any[]>;
-
-  constructor(private firestore: AngularFirestore) {
-    // ...
-    this.itemsCollectionRef = this.firestore.collection('items');
-    this.item$ = this.itemsCollectionRef.valueChanges();
+  itemsCollection: AngularFirestoreCollection<Item>;
+  items: Observable<Item[]>;
+  
+  constructor(public firestore: AngularFirestore) {
+    this.items = this.firestore.collection('items').valueChanges();
   }
 
-  // collection reference
+  // get items
+  getItems() {
+    return this.items;
+  }
 
   // item insertion reactive form
   form = new FormGroup({
@@ -29,7 +30,7 @@ export class ItemsService {
 
   // create new item 
   createItem(data) {
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<Item>((resolve, reject) => {
       this.firestore
         .collection("items")
         .add(data)
@@ -39,7 +40,9 @@ export class ItemsService {
 
   // read items in database with latest changes
   getItemsData() {
-    return this.firestore.collection("items").snapshotChanges();
+    return this.firestore.collection('items')
+      .valueChanges()
+      .subscribe(val => console.log(val));
   }
 
 }
