@@ -4,7 +4,7 @@
   },
   "firestore": {
     "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
+    "indexes": "#"
   },
   "functions": {
     "predeploy": [
@@ -15,7 +15,7 @@
     "source": "functions"
   },
   "hosting": {
-    "public": "dist",
+    "public": "dist/shopping-list-final",
     "ignore": [
       "firebase.json",
       "**/.*",
