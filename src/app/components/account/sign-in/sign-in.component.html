@@ -1,48 +1,14 @@
-<div class="container-fluid">
-    <hr>
-    <h2 style="color: #0d6777; text-align: center;">SIGN IN TO YOUR ACCOUNT</h2>
-    <hr>
-    <br>
-    <div class="row">
-        <div class="col-sm-6" style="color: #0d6777; align-content: center;">
-            <h4>EMAIL ADDRESS</h4>
+<div class="container">
+    <div class="row-sm-6">
+        <h4>Sign In</h4>
+        <div class="col-sm-6" *ngIf="auth.user$ | async as user; else login">
+            <pre>{{ user | json }}</pre>
             <hr>
-            <form [formGroup]=loginForm>
-                <div class="form-group">
-                    <label>Email Address :</label>
-                    <input type="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Password :</label>
-                    <input type="password" class="form-control" required>
-                    <label class="error"></label>
-                    <label class="success"></label>
-                </div>
-                <div class="button-group"></div>
-                <button type="submit" class="btn btn-dark"> Sign In <i class="fas fa-user"></i></button>
-            </form>
-            <a href="account/sign-up">Or Create New Account</a>
+            <button class="btn btn-dark" (click)="auth.signOut()"><i class="fas fa-sign-out"></i>Sign Out</button>
         </div>
-        <div class="col-sm-3" style="color: #0d6777; align-content: center;">
-            <h4>ACCOUNTS</h4>
-            <hr>
-            <h6>Sign in with: </h6>
-            <div class="row">
-                <button href="" class="btn btn-danger col"><i class="fab fa-google"></i> Google</button>
-            </div>
-            <br>
-            <div class="row">
-                <button class="btn btn-dark col"><i class="fab fa-github"></i> GitHub</button>
-            </div>
-            <br>
-            <div class="row">
-                <button class="btn btn-info col"><i class="fab fa-twitter"></i> Twitter</button>
-            </div>
-            <br>
-            <div class="row">
-                <button class="btn btn-primary col"><i class="fab fa-facebook"></i> Facebook</button>
-            </div>
-            <br>
-        </div>
+        <ng-template #login>
+            <button class="btn btn-danger" (click)="auth.googleSignIn()"><i class="fab fa-google"></i> Sign In With
+                Google</button>
+        </ng-template>
     </div>
 </div>
