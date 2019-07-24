@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   itemsData = [];
   items: Item[];
 
-  constructor(private itemsService: ItemsService) { }
+  constructor(public itemsService: ItemsService) { }
 
   ngOnInit() {
     this.getItemsData();
