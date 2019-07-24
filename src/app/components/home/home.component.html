@@ -28,7 +28,7 @@
         <div class="col" style="color: #0d6777; align-content: center;">
             <h3>SHOPPING LIST </h3>
             <hr>
-            <div class="card text-justify" style="width: 26rem;">
+            <div class="card text-justify" style="width: 19rem;">
                 <div class="card-header">
                     <img src="../../../assets/img/supermarket.svg" width="30" height="30"
                         class="d-inline-block align-top" alt="">
@@ -38,7 +38,7 @@
                 <div *ngIf="items?.length > 0; else noItems">
                     <ul *ngFor="let item of items; let i = index" class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <pre> {{i + 1}}. {{item.item_name}}  -----> {{item.item_price}} Ksh.</pre>
+                            <pre> {{i + 1}}. {{item.item_name}} -> {{item.item_price}} Ksh</pre>
                         </li>
                     </ul>
                     <br>

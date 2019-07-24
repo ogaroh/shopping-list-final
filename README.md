@@ -11,7 +11,7 @@ Angular, Bootstrap
 Firebase `Cloud Firestore Database, Authentication` and `Firebase Hosting`
 
 ## Firebase Hosting URL
-
+Finished app can be found at `https://shopping-list-final.web.app` 
 
 ## GitHub Repository
 https://github.com/ogaroh/shopping-list-final
